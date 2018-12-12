@@ -9,15 +9,16 @@ int main(int argc, char* argv[]) {
     return RUN_ALL_TESTS();
 }
 
-std::string convertArabicNumberToRomanNumeral(const unsigned int arabicNumber){
+std::string convertArabicNumberToRomanNumeral(unsigned int arabicNumber){
 
-    if(arabicNumber == 3)
-        return "III";
+    std::string romanNumeral;
 
-    if(arabicNumber == 2)
-        return "II";
+    while(arabicNumber >= 1){
+        romanNumeral += "I";
+        arabicNumber--;
+    }
 
-    return "I";
+    return romanNumeral;
 }
 
 TEST(ArabicToRomanNumeralsConverterTestCase, PreparationsCompleted){
