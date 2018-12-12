@@ -9,5 +9,5 @@ int main(int argc, char* argv[]) {
 }
 
 TEST(ArabicToRomanNumeralsConverterTestCase, PreparationsCompleted){
-    GTEST_FAIL();
+    GTEST_SUCCEED();
 }
