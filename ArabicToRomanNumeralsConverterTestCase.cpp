@@ -25,6 +25,25 @@ std::string convertArabicNumberToRomanNumeral(unsigned int arabicNumber){
     return romanNumeral;
 }
 
+class RomanNumeralAssert{
+
+public:
+    RomanNumeralAssert() = delete;
+    explicit RomanNumeralAssert(const unsigned int arabicNumber) : arabicNumberToConvert(arabicNumber) {}
+
+    void isConvertedToRomanNumeral(const std::string& expectedRomanNumeral) const {
+        ASSERT_EQ(expectedRomanNumeral, convertArabicNumberToRomanNumeral(arabicNumberToConvert));
+    }
+
+private:
+    const unsigned int arabicNumberToConvert;
+};
+
+RomanNumeralAssert assertThat(const unsigned int arabicNumber){
+    RomanNumeralAssert assert {arabicNumber};
+    return assert;
+}
+
 TEST(ArabicToRomanNumeralsConverterTestCase, PreparationsCompleted){
     GTEST_SUCCEED();
 }
@@ -51,4 +70,8 @@ TEST(ArabicToRomanNumeralsConverterTestCase, 20_isConvertedTo_XX){
 
 TEST(ArabicToRomanNumeralsConverterTestCase, 30_isConvertedTo_XXX){
     ASSERT_EQ("XXX", convertArabicNumberToRomanNumeral(30));
+}
+
+TEST(ArabicToRomanNumeralsConverterTestCase, 33_isConvertedTo_XXXIII){
+    assertThat(33).isConvertedToRomanNumeral("XXXIII");
 }
