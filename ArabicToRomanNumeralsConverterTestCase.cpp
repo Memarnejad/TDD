@@ -70,5 +70,8 @@ TEST(ArabicToRomanNumeralsConverterTestCase, conversionOfArabicToRomanNumerals_W
     RomanNumeralAssert::assertThat(200).isConvertedToRomanNumeral("CC");
     RomanNumeralAssert::assertThat(300).isConvertedToRomanNumeral("CCC");
     RomanNumeralAssert::assertThat(1000).isConvertedToRomanNumeral("M");
+    RomanNumeralAssert::assertThat(2000).isConvertedToRomanNumeral("MM");
+    RomanNumeralAssert::assertThat(3000).isConvertedToRomanNumeral("MMM");
+    RomanNumeralAssert::assertThat(3333).isConvertedToRomanNumeral("MMMCCCXXXIII");
 
 }
