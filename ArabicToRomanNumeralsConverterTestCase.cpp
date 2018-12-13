@@ -8,12 +8,14 @@ struct ArabicToRomanMapping{
     std::string romanNumeral;
 };
 
-const std::size_t numberOfMappings = 1;
+const std::size_t numberOfMappings = 3;
 using ArabicToRomanMappings = std::array<ArabicToRomanMapping, numberOfMappings>;
 
-const ArabicToRomanMappings arabicToRomanMappings{
-        {100, "C"}
-};
+const ArabicToRomanMappings arabicToRomanMappings{{
+    {100, "C"},
+    {10, "X"},
+    {1, "I"}
+}};
 
 int main(int argc, char* argv[]) {
 
@@ -30,14 +32,14 @@ std::string convertArabicNumberToRomanNumeral(unsigned int arabicNumber){
         arabicNumber -= arabicToRomanMappings[0].arabicNumber;
     }
 
-    while(arabicNumber >= 10){
-        romanNumeral += "X";
-        arabicNumber-= 10;
+    while(arabicNumber >= arabicToRomanMappings[1].arabicNumber){
+        romanNumeral += arabicToRomanMappings[1].romanNumeral;
+        arabicNumber-= arabicToRomanMappings[1].arabicNumber;
     }
 
-    while(arabicNumber >= 1){
-        romanNumeral += "I";
-        arabicNumber--;
+    while(arabicNumber >= arabicToRomanMappings[2].arabicNumber){
+        romanNumeral += arabicToRomanMappings[2].romanNumeral;
+        arabicNumber -= arabicToRomanMappings[2].arabicNumber;
     }
 
     return romanNumeral;
