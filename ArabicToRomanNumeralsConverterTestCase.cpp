@@ -35,14 +35,15 @@ public:
         ASSERT_EQ(expectedRomanNumeral, convertArabicNumberToRomanNumeral(arabicNumberToConvert));
     }
 
+    static RomanNumeralAssert assertThat(const unsigned int arabicNumber){
+        RomanNumeralAssert assert {arabicNumber};
+        return assert;
+    }
+
 private:
     const unsigned int arabicNumberToConvert;
 };
 
-RomanNumeralAssert assertThat(const unsigned int arabicNumber){
-    RomanNumeralAssert assert {arabicNumber};
-    return assert;
-}
 
 TEST(ArabicToRomanNumeralsConverterTestCase, PreparationsCompleted){
     GTEST_SUCCEED();
@@ -73,5 +74,5 @@ TEST(ArabicToRomanNumeralsConverterTestCase, 30_isConvertedTo_XXX){
 }
 
 TEST(ArabicToRomanNumeralsConverterTestCase, 33_isConvertedTo_XXXIII){
-    assertThat(33).isConvertedToRomanNumeral("XXXIII");
+    RomanNumeralAssert::assertThat(33).isConvertedToRomanNumeral("XXXIII");
 }
