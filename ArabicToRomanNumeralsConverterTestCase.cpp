@@ -13,15 +13,21 @@ std::string convertArabicNumberToRomanNumeral(unsigned int arabicNumber){
 
     std::string romanNumeral;
 
-    while(arabicNumber >= 10){
-        romanNumeral += "X";
-        arabicNumber-= 10;
+    if(arabicNumber == 100){
+        romanNumeral = "C";
+    }
+    else{
+        while(arabicNumber >= 10){
+            romanNumeral += "X";
+            arabicNumber-= 10;
+        }
+
+        while(arabicNumber >= 1){
+            romanNumeral += "I";
+            arabicNumber--;
+        }
     }
 
-    while(arabicNumber >= 1){
-        romanNumeral += "I";
-        arabicNumber--;
-    }
     return romanNumeral;
 }
 
@@ -44,35 +50,15 @@ private:
     const unsigned int arabicNumberToConvert;
 };
 
+TEST(ArabicToRomanNumeralsConverterTestCase, conversionOfArabicToRomanNumerals_Works){
 
-TEST(ArabicToRomanNumeralsConverterTestCase, PreparationsCompleted){
-    GTEST_SUCCEED();
-}
-
-TEST(ArabicToRomanNumeralsConverterTestCase, 1_isConvertedTo_I){
-    ASSERT_EQ("I", convertArabicNumberToRomanNumeral(1));
-}
-
-TEST(ArabicToRomanNumeralsConverterTestCase, 2_isConvertedTo_II){
-    ASSERT_EQ("II", convertArabicNumberToRomanNumeral(2));
-}
-
-TEST(ArabicToRomanNumeralsConverterTestCase, 3_isConvertedTo_III){
-    ASSERT_EQ("III", convertArabicNumberToRomanNumeral(3));
-}
-
-TEST(ArabicToRomanNumeralsConverterTestCase, 10_isConvertedTo_X){
-    ASSERT_EQ("X", convertArabicNumberToRomanNumeral(10));
-}
-
-TEST(ArabicToRomanNumeralsConverterTestCase, 20_isConvertedTo_XX){
-    ASSERT_EQ("XX", convertArabicNumberToRomanNumeral(20));
-}
-
-TEST(ArabicToRomanNumeralsConverterTestCase, 30_isConvertedTo_XXX){
-    ASSERT_EQ("XXX", convertArabicNumberToRomanNumeral(30));
-}
-
-TEST(ArabicToRomanNumeralsConverterTestCase, 33_isConvertedTo_XXXIII){
+    RomanNumeralAssert::assertThat(1).isConvertedToRomanNumeral("I");
+    RomanNumeralAssert::assertThat(2).isConvertedToRomanNumeral("II");
+    RomanNumeralAssert::assertThat(3).isConvertedToRomanNumeral("III");
+    RomanNumeralAssert::assertThat(10).isConvertedToRomanNumeral("X");
+    RomanNumeralAssert::assertThat(20).isConvertedToRomanNumeral("XX");
+    RomanNumeralAssert::assertThat(30).isConvertedToRomanNumeral("XXX");
     RomanNumeralAssert::assertThat(33).isConvertedToRomanNumeral("XXXIII");
+    RomanNumeralAssert::assertThat(100).isConvertedToRomanNumeral("C");
+
 }
