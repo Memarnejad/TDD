@@ -16,6 +16,9 @@ std::string convertArabicNumberToRomanNumeral(unsigned int arabicNumber){
     if(arabicNumber == 100){
         romanNumeral = "C";
     }
+    else if(arabicNumber == 200){
+        romanNumeral = "CC";
+    }
     else{
         while(arabicNumber >= 10){
             romanNumeral += "X";
@@ -60,5 +63,6 @@ TEST(ArabicToRomanNumeralsConverterTestCase, conversionOfArabicToRomanNumerals_W
     RomanNumeralAssert::assertThat(30).isConvertedToRomanNumeral("XXX");
     RomanNumeralAssert::assertThat(33).isConvertedToRomanNumeral("XXXIII");
     RomanNumeralAssert::assertThat(100).isConvertedToRomanNumeral("C");
+    RomanNumeralAssert::assertThat(200).isConvertedToRomanNumeral("CC");
 
 }
