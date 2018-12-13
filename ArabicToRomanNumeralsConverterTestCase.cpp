@@ -13,25 +13,19 @@ std::string convertArabicNumberToRomanNumeral(unsigned int arabicNumber){
 
     std::string romanNumeral;
 
-    if(arabicNumber == 100){
-        romanNumeral = "C";
+    while(arabicNumber >= 100){
+        romanNumeral += "C";
+        arabicNumber -= 100;
     }
-    else if(arabicNumber == 200){
-        romanNumeral = "CC";
-    }
-    else if(arabicNumber == 300){
-        romanNumeral = "CCC";
-    }
-    else{
-        while(arabicNumber >= 10){
-            romanNumeral += "X";
-            arabicNumber-= 10;
-        }
 
-        while(arabicNumber >= 1){
-            romanNumeral += "I";
-            arabicNumber--;
-        }
+    while(arabicNumber >= 10){
+        romanNumeral += "X";
+        arabicNumber-= 10;
+    }
+
+    while(arabicNumber >= 1){
+        romanNumeral += "I";
+        arabicNumber--;
     }
 
     return romanNumeral;
