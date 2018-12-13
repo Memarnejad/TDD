@@ -75,5 +75,7 @@ TEST(ArabicToRomanNumeralsConverterTestCase, conversionOfArabicToRomanNumerals_W
     RomanNumeralAssert::assertThat(3000).isConvertedToRomanNumeral("MMM");
     RomanNumeralAssert::assertThat(3333).isConvertedToRomanNumeral("MMMCCCXXXIII");
     RomanNumeralAssert::assertThat(5).isConvertedToRomanNumeral("V");
+    RomanNumeralAssert::assertThat(6).isConvertedToRomanNumeral("VI");
+    RomanNumeralAssert::assertThat(37).isConvertedToRomanNumeral("XXXVII");
 
 }
