@@ -17,6 +17,9 @@ std::string convertArabicNumberToRomanNumeral(unsigned int arabicNumber){
     else if(arabicNumber == 20){
         return "XX";
     }
+    else if(arabicNumber == 30){
+        return  "XXX";
+    }
     else{
         std::string romanNumeral;
 
@@ -50,4 +53,8 @@ TEST(ArabicToRomanNumeralsConverterTestCase, 10_isConvertedTo_X){
 
 TEST(ArabicToRomanNumeralsConverterTestCase, 20_isConvertedTo_XX){
     ASSERT_EQ("XX", convertArabicNumberToRomanNumeral(20));
+}
+
+TEST(ArabicToRomanNumeralsConverterTestCase, 30_isConvertedTo_XX){
+    ASSERT_EQ("XXX", convertArabicNumberToRomanNumeral(30));
 }
