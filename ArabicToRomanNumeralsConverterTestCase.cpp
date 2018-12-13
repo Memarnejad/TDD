@@ -49,6 +49,6 @@ TEST(ArabicToRomanNumeralsConverterTestCase, 20_isConvertedTo_XX){
     ASSERT_EQ("XX", convertArabicNumberToRomanNumeral(20));
 }
 
-TEST(ArabicToRomanNumeralsConverterTestCase, 30_isConvertedTo_XX){
+TEST(ArabicToRomanNumeralsConverterTestCase, 30_isConvertedTo_XXX){
     ASSERT_EQ("XXX", convertArabicNumberToRomanNumeral(30));
 }
